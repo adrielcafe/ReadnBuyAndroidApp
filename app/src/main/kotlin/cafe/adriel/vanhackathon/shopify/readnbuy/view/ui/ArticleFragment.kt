@@ -1,6 +1,7 @@
 package cafe.adriel.vanhackathon.shopify.readnbuy.view.ui
 
 import android.os.Bundle
+import android.support.v7.app.AlertDialog
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,7 +16,8 @@ import cafe.adriel.vanhackathon.shopify.readnbuy.presenter.IArticlePresenter
 import cafe.adriel.vanhackathon.shopify.readnbuy.util.prettyDate
 import cafe.adriel.vanhackathon.shopify.readnbuy.view.IArticleView
 import cafe.adriel.voxrecorder.view.ui.base.BaseFragment
-import com.pawegio.kandroid.e
+import com.bumptech.glide.Glide
+import kotlinx.android.synthetic.main.dialog_product.view.*
 import kotlinx.android.synthetic.main.fragment_article.*
 import kotlinx.android.synthetic.main.fragment_article.view.*
 
@@ -96,7 +98,26 @@ class ArticleFragment : BaseFragment(), IArticleView {
     }
 
     override fun showProduct(product: Product){
-        e { "SHOW PRODUCT $product" }
+        val vProduct = LayoutInflater.from(activity).inflate(R.layout.dialog_product, null, false)
+        val dialog = AlertDialog.Builder(activity)
+                .setView(vProduct)
+                .create()
+        vProduct.run {
+            vProductTitle.text = product.title
+            vProductPrice.text = "\$${product.price}"
+            vProductDescription.text = product.description
+            vProductBack.setOnClickListener {
+                dialog.dismiss()
+            }
+            vProductBuy.setOnClickListener {
+                dialog.dismiss()
+                presenter.buyProduct(product.id)
+            }
+            Glide.with(context)
+                .load(product.imageUrl)
+                .into(vProductImage)
+        }
+        dialog.show()
     }
 
 }

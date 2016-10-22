@@ -17,4 +17,8 @@ class ArticlePresenter(val view: IArticleView): IArticlePresenter {
                 }, Throwable::printStackTrace)
     }
 
+    override fun buyProduct(productId: Long) {
+
+    }
+
 }

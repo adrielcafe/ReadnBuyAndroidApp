@@ -19,13 +19,14 @@
             android:paddingBottom="10dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textStyle="bold"
+            android:textColor="?attr/colorAccent"
             style="@style/ArticleHeader"/>
 
         <android.support.v7.widget.AppCompatTextView
             android:id="@+id/vDate"
             android:maxLines="1"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:paddingBottom="10dp"
+            android:paddingBottom="20dp"
             style="@style/ArticleHeader"/>
 
         <WebView

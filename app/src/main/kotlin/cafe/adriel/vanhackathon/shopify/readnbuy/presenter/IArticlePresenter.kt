@@ -4,4 +4,6 @@ interface IArticlePresenter {
 
     fun loadProduct(productUrl: String)
 
+    fun buyProduct(productId: Long)
+
 }

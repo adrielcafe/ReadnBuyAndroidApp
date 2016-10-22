@@ -22,11 +22,18 @@
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay">
 
-            <android.support.v7.widget.AppCompatImageView
-                android:layout_width="148dp"
-                android:layout_height="45dp"
-                android:paddingTop="3dp"
-                android:src="@drawable/logo"/>
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.v7.widget.AppCompatImageView
+                    android:layout_width="148dp"
+                    android:layout_height="45dp"
+                    android:paddingTop="3dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/logo"/>
+
+            </FrameLayout>
 
         </android.support.v7.widget.Toolbar>
 
