@@ -1,0 +1,38 @@
+@font-face {
+	font-family: 'Slabo27px';
+	src: url('file:///android_asset/fonts/Slabo27px-Regular.ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body {
+	font-family: 'Slabo27px';
+	word-wrap: break-word;
+}
+
+a {
+	font-weight: bold !important;
+    color: #9B59B6;
+	user-select: none;
+	-webkit-user-select: none;
+}
+
+.product {
+    position: relative;
+    margin: 30px;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
+}
+.product .product-image {
+    width: auto;
+    height: 200px;
+}
+.product .product-price {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    color: #9B59B6;
+    font-size: 22px;
+}

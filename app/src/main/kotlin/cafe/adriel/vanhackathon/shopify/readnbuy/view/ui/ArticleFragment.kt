@@ -9,12 +9,17 @@ import android.webkit.WebViewClient
 import cafe.adriel.vanhackathon.shopify.readnbuy.Constant
 import cafe.adriel.vanhackathon.shopify.readnbuy.R
 import cafe.adriel.vanhackathon.shopify.readnbuy.model.entity.Article
+import cafe.adriel.vanhackathon.shopify.readnbuy.model.entity.Product
+import cafe.adriel.vanhackathon.shopify.readnbuy.presenter.ArticlePresenter
+import cafe.adriel.vanhackathon.shopify.readnbuy.presenter.IArticlePresenter
 import cafe.adriel.vanhackathon.shopify.readnbuy.util.prettyDate
+import cafe.adriel.vanhackathon.shopify.readnbuy.view.IArticleView
 import cafe.adriel.voxrecorder.view.ui.base.BaseFragment
+import com.pawegio.kandroid.e
 import kotlinx.android.synthetic.main.fragment_article.*
 import kotlinx.android.synthetic.main.fragment_article.view.*
 
-class ArticleFragment : BaseFragment() {
+class ArticleFragment : BaseFragment(), IArticleView {
 
     companion object {
 
@@ -29,28 +34,35 @@ class ArticleFragment : BaseFragment() {
 
     }
 
-    lateinit var article: Article
+    private lateinit var presenter : IArticlePresenter
+    private lateinit var article : Article
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         article = arguments.getParcelable(Constant.EXTRA_ARTICLE)
+        presenter = ArticlePresenter(this)
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater!!.inflate(R.layout.fragment_article, container, false)
         view.vBody.let {
-            it.settings.defaultFontSize = 18
+            it.settings.defaultFontSize = 20
+            it.settings.javaScriptEnabled = true
             it.setWebViewClient(object : WebViewClient(){
                 override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
                     url?.let {
-                        showProduct(it)
+                        presenter.loadProduct(it)
                     }
                     return true
                 }
             })
         }
-        loadArticle(view)
         return view
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        showArticle(article)
     }
 
     override fun onDestroyView() {
@@ -58,30 +70,33 @@ class ArticleFragment : BaseFragment() {
         vBody?.destroy()
     }
 
-    private fun loadArticle(view: View){
-        val body = """
+    override fun showArticle(article: Article){
+        val html = """
             |<!doctype html>
             |<html lang="en">
             |<head>
             |    <meta charset="utf-8">
             |    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-            |    <link rel="stylesheet" type="text/css" href="normalize.css">
-            |    <link rel="stylesheet" type="text/css" href="article.css">
+            |    <link type="text/css" rel="stylesheet" href="css/normalize.css">
+            |    <link type="text/css" rel="stylesheet" href="css/article.css">
             |</head>
             |<body>
             |   <article>
             |       ${article.body}
-            |   <article>
+            |   </article>
+            |
+            |   <script type="text/javascript" src="js/zepto.js"></script>
+            |   <script type="text/javascript" src="js/article.js"></script>
             |</body>
             |</html>
             """.trimMargin()
-        view.vTitle.text = article.title
-        view.vDate.text = article.date.prettyDate()
-        view.vBody.loadDataWithBaseURL("file:///android_asset/article/", body, "text/html", "utf-8", null)
+        vTitle.text = article.title
+        vDate.text = article.date.prettyDate()
+        vBody.loadDataWithBaseURL("file:///android_asset/article/", html, "text/html", "utf-8", null)
     }
 
-    private fun showProduct(url: String){
-
+    override fun showProduct(product: Product){
+        e { "SHOW PRODUCT $product" }
     }
 
 }

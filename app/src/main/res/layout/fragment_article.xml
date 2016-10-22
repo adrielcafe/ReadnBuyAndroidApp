@@ -7,6 +7,7 @@
     <android.support.v7.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:minHeight="300dp"
         android:layout_margin="@dimen/article_title_margin"
         android:padding="@dimen/article_title_margin"
         android:background="@android:color/white"
@@ -23,14 +24,14 @@
         <android.support.v7.widget.AppCompatTextView
             android:id="@+id/vDate"
             android:maxLines="1"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:paddingBottom="20dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:paddingBottom="10dp"
             style="@style/ArticleHeader"/>
 
         <WebView
             android:id="@+id/vBody"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="match_parent"/>
 
     </android.support.v7.widget.LinearLayoutCompat>
 

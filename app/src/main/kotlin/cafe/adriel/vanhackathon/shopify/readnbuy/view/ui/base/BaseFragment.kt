@@ -3,8 +3,6 @@ package cafe.adriel.voxrecorder.view.ui.base
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import com.eightbitlab.rxbus.Bus
-import com.tinsuke.icekick.freezeInstanceState
-import com.tinsuke.icekick.unfreezeInstanceState
 
 abstract class BaseFragment: Fragment() {
 
