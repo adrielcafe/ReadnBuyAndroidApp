@@ -5,23 +5,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
     android:background="@color/light_gray"
+    android:fitsSystemWindows="true"
     tools:context=".view.ui.ArticleActivity">
 
-    <com.intrusoft.squint.DiagonalView
+    <com.github.florent37.diagonallayout.DiagonalLayout
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:layout_alignParentTop="true"
-        app:angle="15"
-        app:gravity="right"
-        app:scaleType="centerCrop"
-        app:solidColor="?attr/colorPrimary" />
+        app:diagonal_angle="15"
+        app:diagonal_gravity="right">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?attr/colorPrimary"/>
+
+        <ImageView
+            android:id="@+id/vImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"/>
+
+    </com.github.florent37.diagonallayout.DiagonalLayout>
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/appbar_padding"
+        android:background="@android:color/transparent"
         android:theme="@style/AppTheme.AppBarOverlay"
         app:elevation="0dp">
 
@@ -29,17 +39,13 @@
             android:id="@+id/vToolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@android:color/transparent"
             app:popupTheme="@style/AppTheme.PopupOverlay"/>
 
     </android.support.design.widget.AppBarLayout>
 
-    <fragment
-        android:id="@+id/fArticle"
-        android:name="cafe.adriel.vanhackathon.shopify.readnbuy.view.ui.ArticleFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="?attr/actionBarSize"
-        tools:layout="@layout/fragment_article"/>
+    <FrameLayout
+        android:id="@+id/vReplaceMe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
 </android.support.design.widget.CoordinatorLayout>

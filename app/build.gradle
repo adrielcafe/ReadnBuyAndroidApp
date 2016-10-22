@@ -51,7 +51,7 @@ dependencies {
     // Android
     compile "com.github.bumptech.glide:glide:3.7.0"
     compile "com.tsengvn:typekit:1.0.1@aar"
-    compile "com.github.IntruderShanky:Squint:2.1.0@aar"
+    compile "com.github.florent37:diagonallayout:1.0.2@aar"
 
     // Rx
     compile "io.reactivex:rxjava:1.2.1"

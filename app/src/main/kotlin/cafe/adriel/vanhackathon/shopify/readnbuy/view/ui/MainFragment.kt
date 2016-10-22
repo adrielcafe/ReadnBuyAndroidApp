@@ -5,6 +5,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import cafe.adriel.vanhackathon.shopify.readnbuy.Constant
 import cafe.adriel.vanhackathon.shopify.readnbuy.R
 import cafe.adriel.vanhackathon.shopify.readnbuy.model.entity.Article
 import cafe.adriel.vanhackathon.shopify.readnbuy.view.adapter.ArticleAdapter
@@ -27,7 +28,7 @@ class MainFragment : BaseFragment() {
             it.adapter = adapter
             it.layoutManager = layoutManager
             it.addOnItemTouchListener(RecyclerItemClickListener(activity, {
-                startActivity(IntentFor<ArticleActivity>(activity))
+                showArticle(it)
             }))
         }
         return view
@@ -43,6 +44,13 @@ class MainFragment : BaseFragment() {
         val a5 = Article("Title 5", "Body 5", "http://www.planwallpaper.com/static/images/abstract_wallpaper_xVBXbWX.jpg", Calendar.getInstance().time)
         val articles = listOf(a1, a2, a3, a4, a5)
         adapter.load(articles)
+    }
+
+    private fun showArticle(position: Int){
+        val article = adapter.items[position]
+        val intent = IntentFor<ArticleActivity>(activity)
+        intent.putExtra(Constant.EXTRA_ARTICLE, article)
+        startActivity(intent)
     }
 
 }
