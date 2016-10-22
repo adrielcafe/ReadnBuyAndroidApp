@@ -1,0 +1,7 @@
+<resources>
+    <dimen name="article_margin_hor">16dp</dimen>
+    <dimen name="article_margin_ver">8dp</dimen>
+    <dimen name="article_title_margin">16dp</dimen>
+    <dimen name="appbar_padding">8dp</dimen>
+    <dimen name="article_height">200dp</dimen>
+</resources>

@@ -1,0 +1,39 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/article_title_margin"
+        android:padding="@dimen/article_title_margin"
+        android:background="@android:color/white"
+        android:orientation="vertical"
+        android:elevation="5dp">
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/vTitle"
+            android:paddingBottom="10dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textStyle="bold"
+            android:text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr"
+            style="@style/ArticleHeader"/>
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/vDate"
+            android:maxLines="1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:paddingBottom="20dp"
+            android:text="22/10/16"
+            style="@style/ArticleHeader"/>
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/vBody"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.\n\nAt vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.\n\nAt vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.\n\nAt vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+            style="@style/ArticleHeader"/>
+
+    </android.support.v7.widget.LinearLayoutCompat>
+
+</ScrollView>

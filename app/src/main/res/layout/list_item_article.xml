@@ -1,0 +1,43 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/article_height"
+    android:background="?attr/colorPrimaryDark">
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/vImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"/>
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/vOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@color/black_alpha"/>
+
+    <android.support.v7.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:padding="@dimen/article_title_margin"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/vTitle"
+            android:paddingBottom="5dp"
+            android:maxLines="2"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textStyle="bold"
+            style="@style/ArticleCardText"/>
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/vDate"
+            android:maxLines="1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            style="@style/ArticleCardText"/>
+
+    </android.support.v7.widget.LinearLayoutCompat>
+
+</RelativeLayout>

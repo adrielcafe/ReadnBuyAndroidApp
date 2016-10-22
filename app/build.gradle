@@ -1,0 +1,60 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion "24.0.2"
+    defaultConfig {
+        applicationId "cafe.adriel.vanhackathon.shopify.readnbuy"
+        minSdkVersion 21
+        targetSdkVersion 24
+        versionCode 1
+        versionName "1.0"
+    }
+    productFlavors {
+        dev {
+            resValue "string", "app_name", "Read n\\' Buy Dev"
+        }
+        prod {
+            resValue "string", "app_name", "Read n\\' Buy"
+        }
+    }
+    buildTypes {
+        debug {
+            applicationIdSuffix ".debug"
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main.java.srcDirs += "src/main/kotlin"
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    // Support
+    compile "com.android.support:support-v4:$support_version"
+    compile "com.android.support:appcompat-v7:$support_version"
+    compile "com.android.support:recyclerview-v7:$support_version"
+    compile "com.android.support:design:$support_version"
+
+    // Kotlin
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compile "com.pawegio.kandroid:kandroid:0.6.14@aar" // https://github.com/pawegio/KAndroid
+    compile "com.github.tinsukE:icekick:0.1@aar" // https://github.com/tinsukE/icekick
+
+    // Android
+    compile "com.github.bumptech.glide:glide:3.7.0"
+    compile "com.tsengvn:typekit:1.0.1@aar"
+    compile "com.github.IntruderShanky:Squint:2.1.0@aar"
+
+    // Rx
+    compile "io.reactivex:rxjava:1.2.1"
+    compile "io.reactivex:rxandroid:1.2.1@aar"
+    compile "com.eightbitlab:rxbus:1.0.2@aar"
+}
