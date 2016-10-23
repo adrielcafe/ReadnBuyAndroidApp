@@ -8,6 +8,5 @@
     <string name="forgot_password">Forgot your password?</string>
     <string name="dont_have_account_create_one">Don\'t have an account? Create one</string>
     <string name="unable_log_in">Sorry, unable to log in</string>
-    <string name="unable_log_out">Sorry, unable to log out</string>
     <string name="press_back_again">Press BACK again to quit</string>
 </resources>

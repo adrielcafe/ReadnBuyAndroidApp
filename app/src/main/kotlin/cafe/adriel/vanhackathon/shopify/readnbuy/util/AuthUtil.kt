@@ -14,12 +14,13 @@ object AuthUtil {
                 })
     }
 
-    fun logOut(callback: (success: Boolean) -> Unit){
+    fun logOut(callback: () -> Unit){
         App.shopify.logoutCustomer()
                 .subscribe({
-                    callback(true)
+                    callback()
                 }, {
-                    callback(false)
+                    callback()
+                    it.printStackTrace()
                 })
     }
 

@@ -56,13 +56,9 @@ class MainActivity : BaseActivity() {
     }
 
     private fun logOut(){
-        AuthUtil.logOut { success ->
-            if(success){
-                startActivity(IntentFor<LogInActivity>(this))
-                finish()
-            } else {
-                toast(string(R.string.unable_log_out))
-            }
+        AuthUtil.logOut {
+            startActivity(IntentFor<LogInActivity>(this))
+            finish()
         }
     }
 
