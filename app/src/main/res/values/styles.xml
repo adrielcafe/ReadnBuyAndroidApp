@@ -4,6 +4,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowAnimationStyle">@style/ActivityAnimationStyle</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -14,6 +15,13 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+    <style name="ActivityAnimationStyle" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/stack_right_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/stack_to_back</item>
+        <item name="android:activityCloseEnterAnimation">@anim/stack_to_front</item>
+        <item name="android:activityCloseExitAnimation">@anim/stack_right_out</item>
+    </style>
 
     <style name="ArticleCardText">
         <item name="android:layout_width">match_parent</item>
