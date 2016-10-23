@@ -9,4 +9,6 @@ interface IArticleView {
 
     fun showProduct(product: Product)
 
+    fun completeWebCheckout(checkoutUrl: String)
+
 }

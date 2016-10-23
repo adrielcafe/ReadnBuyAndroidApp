@@ -3,8 +3,10 @@ package cafe.adriel.vanhackathon.shopify.readnbuy
 import android.app.Application
 import android.content.Context
 import android.os.StrictMode
+import com.pawegio.kandroid.e
 import com.shopify.buy.dataprovider.BuyClient
 import com.shopify.buy.dataprovider.BuyClientBuilder
+import com.shopify.buy.model.AccountCredentials
 import com.tsengvn.typekit.Typekit
 
 class App: Application() {
@@ -39,6 +41,10 @@ class App: Application() {
                 .appId(Constant.SHOPIFY_APP_ID)
                 .apiKey(Constant.SHOPIFY_API_KEY)
                 .build()
+        shopify.loginCustomer(AccountCredentials("demo@demo.com", "123456"))
+                .subscribe({
+                    e { it.email }
+                }, Throwable::printStackTrace)
     }
 
 }

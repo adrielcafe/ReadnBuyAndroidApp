@@ -8,7 +8,8 @@ data class Product(
         val title: String,
         val description: String,
         val imageUrl: String,
-        val price: Float) : Parcelable {
+        val price: Float,
+        val variant: ProductVariantSerializable) : Parcelable {
 
     companion object {
         @JvmField val CREATOR: Parcelable.Creator<Product> = object : Parcelable.Creator<Product> {
@@ -17,7 +18,7 @@ data class Product(
         }
     }
 
-    constructor(source: Parcel) : this(source.readLong(), source.readString(), source.readString(), source.readString(), source.readFloat())
+    constructor(source: Parcel) : this(source.readLong(), source.readString(), source.readString(), source.readString(), source.readFloat(), source.readSerializable() as ProductVariantSerializable)
 
     override fun describeContents() = 0
 
@@ -27,6 +28,7 @@ data class Product(
         dest?.writeString(description)
         dest?.writeString(imageUrl)
         dest?.writeFloat(price)
+        dest?.writeSerializable(variant)
     }
 
 }

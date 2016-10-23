@@ -1,5 +1,6 @@
 package cafe.adriel.vanhackathon.shopify.readnbuy.presenter
 
+import cafe.adriel.vanhackathon.shopify.readnbuy.model.entity.Product
 import cafe.adriel.vanhackathon.shopify.readnbuy.model.repository.IProductRepository
 import cafe.adriel.vanhackathon.shopify.readnbuy.model.repository.ProductRepository
 import cafe.adriel.vanhackathon.shopify.readnbuy.util.Util
@@ -19,8 +20,8 @@ class ArticlePresenter(val view: IArticleView): IArticlePresenter {
         } catch (e: Exception){ }
     }
 
-    override fun buyProduct(productId: Long) {
-
+    override fun buyProduct(product: Product) {
+        productRepo.buyProduct(product)
     }
 
 }

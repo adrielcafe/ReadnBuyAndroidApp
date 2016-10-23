@@ -7,6 +7,6 @@ interface IProductRepository {
 
     fun getProductById(id: Long): Observable<Product>
 
-    fun buyProduct(id: Long)
+    fun buyProduct(product: Product)
 
 }

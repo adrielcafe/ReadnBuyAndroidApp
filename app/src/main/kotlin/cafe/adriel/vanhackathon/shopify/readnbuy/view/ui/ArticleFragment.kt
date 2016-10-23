@@ -1,5 +1,7 @@
 package cafe.adriel.vanhackathon.shopify.readnbuy.view.ui
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
 import android.view.LayoutInflater
@@ -11,12 +13,15 @@ import cafe.adriel.vanhackathon.shopify.readnbuy.Constant
 import cafe.adriel.vanhackathon.shopify.readnbuy.R
 import cafe.adriel.vanhackathon.shopify.readnbuy.model.entity.Article
 import cafe.adriel.vanhackathon.shopify.readnbuy.model.entity.Product
+import cafe.adriel.vanhackathon.shopify.readnbuy.model.entity.WebCheckoutEvent
 import cafe.adriel.vanhackathon.shopify.readnbuy.presenter.ArticlePresenter
 import cafe.adriel.vanhackathon.shopify.readnbuy.presenter.IArticlePresenter
 import cafe.adriel.vanhackathon.shopify.readnbuy.util.prettyDate
 import cafe.adriel.vanhackathon.shopify.readnbuy.view.IArticleView
 import cafe.adriel.voxrecorder.view.ui.base.BaseFragment
 import com.bumptech.glide.Glide
+import com.eightbitlab.rxbus.Bus
+import com.eightbitlab.rxbus.registerInBus
 import kotlinx.android.synthetic.main.dialog_product.view.*
 import kotlinx.android.synthetic.main.fragment_article.*
 import kotlinx.android.synthetic.main.fragment_article.view.*
@@ -64,6 +69,9 @@ class ArticleFragment : BaseFragment(), IArticleView {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        Bus.observe<WebCheckoutEvent>()
+                .subscribe { completeWebCheckout(it.checkoutUrl) }
+                .registerInBus(this)
         showArticle(article)
     }
 
@@ -110,14 +118,21 @@ class ArticleFragment : BaseFragment(), IArticleView {
                 dialog.dismiss()
             }
             vProductBuy.setOnClickListener {
+                presenter.buyProduct(product)
                 dialog.dismiss()
-                presenter.buyProduct(product.id)
             }
             Glide.with(context)
                 .load(product.imageUrl)
                 .into(vProductImage)
         }
         dialog.show()
+    }
+
+    override fun completeWebCheckout(checkoutUrl: String) {
+        val intent = Intent(Intent.ACTION_VIEW)
+        intent.data = Uri.parse(checkoutUrl)
+        intent.`package` = "com.android.chrome"
+        startActivity(intent)
     }
 
 }

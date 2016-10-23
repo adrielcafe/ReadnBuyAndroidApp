@@ -5,8 +5,8 @@ import com.eightbitlab.rxbus.Bus
 
 abstract class BaseFragment: Fragment() {
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onDestroyView() {
+        super.onDestroyView()
         Bus.unregister(this)
     }
 
