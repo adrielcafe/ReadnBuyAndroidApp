@@ -20,7 +20,7 @@
             android:layout_height="match_parent"
             android:background="?attr/colorPrimary"/>
 
-        <ImageView
+        <com.flaviofaria.kenburnsview.KenBurnsView
             android:id="@+id/vImage"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

@@ -53,6 +53,7 @@ dependencies {
     compile "com.mikepenz:google-material-typeface:2.2.0.3.original@aar"
     compile "com.tsengvn:typekit:1.0.1@aar"
     compile "com.github.florent37:diagonallayout:1.0.2@aar"
+    compile "com.flaviofaria:kenburnsview:1.0.7@aar"
 
     // Rx
     compile "io.reactivex:rxjava:1.2.1"
