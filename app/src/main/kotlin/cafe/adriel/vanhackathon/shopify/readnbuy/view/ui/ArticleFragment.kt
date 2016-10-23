@@ -118,6 +118,7 @@ class ArticleFragment : BaseFragment(), IArticleView {
         val intent = Intent(Intent.ACTION_VIEW)
         intent.data = Uri.parse(checkoutUrl)
         intent.`package` = "com.android.chrome"
+
         startActivity(intent)
     }
 

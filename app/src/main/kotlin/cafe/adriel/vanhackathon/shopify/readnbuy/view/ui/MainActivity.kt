@@ -1,10 +1,12 @@
 package cafe.adriel.vanhackathon.shopify.readnbuy.view.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import cafe.adriel.vanhackathon.shopify.readnbuy.R
 import cafe.adriel.vanhackathon.shopify.readnbuy.util.AuthUtil
+import cafe.adriel.vanhackathon.shopify.readnbuy.util.isCheckoutFinished
 import cafe.adriel.vanhackathon.shopify.readnbuy.util.setFontIcon
 import cafe.adriel.vanhackathon.shopify.readnbuy.util.string
 import cafe.adriel.voxrecorder.view.ui.base.BaseActivity
@@ -24,6 +26,13 @@ class MainActivity : BaseActivity() {
         setSupportActionBar(vToolbar)
         supportActionBar?.run {
             setDisplayShowTitleEnabled(false)
+        }
+    }
+
+    override fun onNewIntent(intent: Intent?) {
+        super.onNewIntent(intent)
+        if(intent != null && intent.isCheckoutFinished()){
+            toast(string(R.string.congrats_for_buy))
         }
     }
 

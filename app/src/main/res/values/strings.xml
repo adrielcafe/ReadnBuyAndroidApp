@@ -9,4 +9,6 @@
     <string name="dont_have_account_create_one">Don\'t have an account? Create one</string>
     <string name="unable_log_in">Sorry, unable to log in</string>
     <string name="press_back_again">Press BACK again to quit</string>
+    <string name="return_app">Return to app</string>
+    <string name="congrats_for_buy">Congratulations for your buy!</string>
 </resources>
