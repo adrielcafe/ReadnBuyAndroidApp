@@ -10,11 +10,13 @@ class ArticlePresenter(val view: IArticleView): IArticlePresenter {
     val productRepo : IProductRepository = ProductRepository()
 
     override fun loadProduct(productUrl: String) {
-        val productId = Util.getProductId(productUrl)
-        productRepo.getProductById(productId)
-                .subscribe({
-                    view.showProduct(it)
-                }, Throwable::printStackTrace)
+        try {
+            val productId = Util.getProductId(productUrl)
+            productRepo.getProductById(productId)
+                    .subscribe({
+                        view.showProduct(it)
+                    }, Throwable::printStackTrace)
+        } catch (e: Exception){ }
     }
 
     override fun buyProduct(productId: Long) {

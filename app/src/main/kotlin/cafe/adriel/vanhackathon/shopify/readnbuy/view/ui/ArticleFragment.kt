@@ -48,7 +48,7 @@ class ArticleFragment : BaseFragment(), IArticleView {
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater!!.inflate(R.layout.fragment_article, container, false)
         view.vBody.let {
-            it.settings.defaultFontSize = 20
+            it.settings.defaultFontSize = 22
             it.settings.javaScriptEnabled = true
             it.setWebViewClient(object : WebViewClient(){
                 override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
@@ -73,7 +73,7 @@ class ArticleFragment : BaseFragment(), IArticleView {
     }
 
     override fun showArticle(article: Article){
-        val html = """
+        val body = """
             |<!doctype html>
             |<html lang="en">
             |<head>
@@ -94,7 +94,7 @@ class ArticleFragment : BaseFragment(), IArticleView {
             """.trimMargin()
         vTitle.text = article.title
         vDate.text = article.date.prettyDate()
-        vBody.loadDataWithBaseURL("file:///android_asset/article/", html, "text/html", "utf-8", null)
+        vBody.loadDataWithBaseURL("file:///android_asset/article/", body, "text/html", "utf-8", null)
     }
 
     override fun showProduct(product: Product){

@@ -2,7 +2,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="100dp">
+    android:layout_marginTop="100dp">
 
     <android.support.v7.widget.LinearLayoutCompat
         android:layout_width="match_parent"
@@ -26,13 +26,20 @@
             android:id="@+id/vDate"
             android:maxLines="1"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:paddingBottom="20dp"
             style="@style/ArticleHeader"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="5dp"
+            android:background="@color/light_gray"/>
 
         <WebView
             android:id="@+id/vBody"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:scrollbars="none"/>
 
     </android.support.v7.widget.LinearLayoutCompat>
 
