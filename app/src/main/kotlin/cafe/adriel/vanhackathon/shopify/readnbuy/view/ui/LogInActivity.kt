@@ -34,11 +34,13 @@ class LogInActivity : BaseActivity(), ILogInView {
     override fun logIn(){
         val email = vEmail.text.toString()
         val password = vPassword.text.toString()
+        toggleViews(false)
         AuthUtil.logIn(email, password, { success ->
             if(success){
                 startActivity(IntentFor<MainActivity>(this))
                 finish()
             } else {
+                toggleViews(true)
                 toast(string(R.string.unable_log_in))
             }
         })
@@ -54,4 +56,8 @@ class LogInActivity : BaseActivity(), ILogInView {
         startActivity(intent)
     }
 
+    override fun toggleViews(enabled: Boolean) {
+        vEmail.isEnabled = enabled
+        vPassword.isEnabled = enabled
+    }
 }

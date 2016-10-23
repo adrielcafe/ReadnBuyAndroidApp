@@ -8,4 +8,6 @@ interface ILogInView {
 
     fun recoverPassword()
 
+    fun toggleViews(enabled: Boolean)
+
 }
