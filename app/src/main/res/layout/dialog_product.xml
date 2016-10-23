@@ -52,30 +52,16 @@
 
         <android.support.v7.widget.AppCompatTextView
             android:id="@+id/vProductBack"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:layout_margin="10dp"
-            android:padding="10dp"
-            android:gravity="center"
             android:text="@string/back"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:background="@drawable/button_outline"
-            android:clickable="true"/>
+            style="@style/ProductTextView"/>
 
         <android.support.v7.widget.AppCompatTextView
             android:id="@+id/vProductBuy"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:layout_margin="10dp"
-            android:padding="10dp"
-            android:gravity="center"
             android:text="@string/buy"
             android:textColor="@android:color/white"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:background="@drawable/button_fill"
-            android:clickable="true"/>
+            style="@style/ProductTextView"/>
 
     </android.support.v7.widget.LinearLayoutCompat>
 

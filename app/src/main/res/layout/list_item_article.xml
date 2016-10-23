@@ -31,13 +31,13 @@
             android:maxLines="3"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textStyle="bold"
-            style="@style/ArticleCardText"/>
+            style="@style/ArticleCardTextView"/>
 
         <android.support.v7.widget.AppCompatTextView
             android:id="@+id/vDate"
             android:maxLines="1"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            style="@style/ArticleCardText"/>
+            style="@style/ArticleCardTextView"/>
 
     </android.support.v7.widget.LinearLayoutCompat>
 

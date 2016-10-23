@@ -28,32 +28,21 @@
 
         <android.support.v7.widget.AppCompatEditText
             android:id="@+id/vEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:padding="10dp"
-            android:gravity="center"
             android:hint="@string/email"
             android:inputType="textEmailAddress"
-            android:textColor="@android:color/white"
-            android:textColorHint="@android:color/darker_gray"/>
+            style="@style/LogInEditText"/>
 
         <android.support.v7.widget.AppCompatEditText
             android:id="@+id/vPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:padding="10dp"
-            android:gravity="center"
             android:hint="@string/password"
             android:inputType="textPassword"
-            android:textColor="@android:color/white"
-            android:textColorHint="@android:color/darker_gray"/>
+            style="@style/LogInEditText"/>
 
         <android.support.v7.widget.AppCompatTextView
             android:id="@+id/vLogIn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:gravity="center"
             android:padding="10dp"
@@ -65,24 +54,16 @@
 
         <android.support.v7.widget.AppCompatTextView
             android:id="@+id/vRecoverPassword"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:padding="10dp"
             android:text="@string/forgot_password"
-            android:textColor="@color/light_gray"
-            android:clickable="true"/>
+            style="@style/LogInTextView"/>
 
     </android.support.v7.widget.LinearLayoutCompat>
 
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/vRegister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|bottom"
-        android:padding="20dp"
         android:text="@string/dont_have_account_create_one"
-        android:textColor="@color/light_gray"
-        android:clickable="true"/>
+        style="@style/LogInTextView"/>
 
 </android.support.design.widget.CoordinatorLayout>

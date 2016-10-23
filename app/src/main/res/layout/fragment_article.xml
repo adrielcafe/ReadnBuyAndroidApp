@@ -19,13 +19,13 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textStyle="bold"
             android:textColor="?attr/colorAccent"
-            style="@style/ArticleHeader"/>
+            style="@style/ArticleHeaderTextView"/>
 
         <android.support.v7.widget.AppCompatTextView
             android:id="@+id/vDate"
             android:maxLines="1"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            style="@style/ArticleHeader"/>
+            style="@style/ArticleHeaderTextView"/>
 
         <View
             android:layout_width="match_parent"
