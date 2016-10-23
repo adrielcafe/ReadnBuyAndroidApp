@@ -28,7 +28,7 @@
         <android.support.v7.widget.AppCompatTextView
             android:id="@+id/vTitle"
             android:paddingBottom="5dp"
-            android:maxLines="2"
+            android:maxLines="3"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textStyle="bold"
             style="@style/ArticleCardText"/>

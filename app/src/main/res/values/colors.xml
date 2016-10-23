@@ -5,7 +5,7 @@
     <color name="colorPrimaryDark">#2C3E50</color>
     <color name="colorAccent">#9B59B6</color>
 
-    <color name="black_alpha">#44000000</color>
+    <color name="black_alpha">#77000000</color>
     <color name="light_gray">#ECF0F1</color>
 
 </resources>

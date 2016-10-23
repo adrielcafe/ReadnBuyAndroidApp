@@ -1,8 +1,7 @@
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginTop="100dp">
+    android:layout_height="match_parent">
 
     <android.support.v7.widget.LinearLayoutCompat
         android:layout_width="match_parent"
@@ -32,7 +31,6 @@
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:layout_marginTop="20dp"
-            android:layout_marginBottom="5dp"
             android:background="@color/light_gray"/>
 
         <WebView

@@ -37,9 +37,7 @@ class ArticleActivity : BaseActivity() {
     private fun loadArticle(){
         if(intent.hasExtra(Constant.EXTRA_ARTICLE)) {
             val article : Article = intent.getParcelableExtra(Constant.EXTRA_ARTICLE)
-            supportFragmentManager.beginTransaction()
-                    .replace(R.id.vReplaceMe, ArticleFragment.newInstance(article))
-                    .commitNow()
+            (fArticle as ArticleFragment).showArticle(article)
             Glide.with(this)
                     .load(article.imageUrl)
                     .into(vImage)

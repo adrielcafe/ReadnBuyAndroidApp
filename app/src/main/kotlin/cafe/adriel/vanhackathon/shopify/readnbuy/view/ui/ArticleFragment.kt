@@ -4,12 +4,12 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
+import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import cafe.adriel.vanhackathon.shopify.readnbuy.Constant
 import cafe.adriel.vanhackathon.shopify.readnbuy.R
 import cafe.adriel.vanhackathon.shopify.readnbuy.model.entity.Article
 import cafe.adriel.vanhackathon.shopify.readnbuy.model.entity.Product
@@ -22,38 +22,24 @@ import cafe.adriel.voxrecorder.view.ui.base.BaseFragment
 import com.bumptech.glide.Glide
 import com.eightbitlab.rxbus.Bus
 import com.eightbitlab.rxbus.registerInBus
+import com.pawegio.kandroid.e
 import kotlinx.android.synthetic.main.dialog_product.view.*
 import kotlinx.android.synthetic.main.fragment_article.*
 import kotlinx.android.synthetic.main.fragment_article.view.*
 
 class ArticleFragment : BaseFragment(), IArticleView {
 
-    companion object {
-
-        fun newInstance(article: Article) : ArticleFragment {
-            val args = Bundle()
-            args.putParcelable(Constant.EXTRA_ARTICLE, article)
-
-            val fragment = ArticleFragment()
-            fragment.arguments = args
-            return fragment
-        }
-
-    }
-
     private lateinit var presenter : IArticlePresenter
-    private lateinit var article : Article
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        article = arguments.getParcelable(Constant.EXTRA_ARTICLE)
         presenter = ArticlePresenter(this)
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater!!.inflate(R.layout.fragment_article, container, false)
         view.vBody.let {
-            it.settings.defaultFontSize = 22
+            it.settings.defaultFontSize = 20
             it.settings.javaScriptEnabled = true
             it.setWebViewClient(object : WebViewClient(){
                 override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
@@ -72,7 +58,6 @@ class ArticleFragment : BaseFragment(), IArticleView {
         Bus.observe<WebCheckoutEvent>()
                 .subscribe { completeWebCheckout(it.checkoutUrl) }
                 .registerInBus(this)
-        showArticle(article)
     }
 
     override fun onDestroyView() {
@@ -100,6 +85,7 @@ class ArticleFragment : BaseFragment(), IArticleView {
             |</body>
             |</html>
             """.trimMargin()
+        e { body }
         vTitle.text = article.title
         vDate.text = article.date.prettyDate()
         vBody.loadDataWithBaseURL("file:///android_asset/article/", body, "text/html", "utf-8", null)
@@ -113,7 +99,7 @@ class ArticleFragment : BaseFragment(), IArticleView {
         vProduct.run {
             vProductTitle.text = product.title
             vProductPrice.text = "\$${product.price}"
-            vProductDescription.text = product.description
+            vProductDescription.text = Html.fromHtml(product.description).toString()
             vProductBack.setOnClickListener {
                 dialog.dismiss()
             }

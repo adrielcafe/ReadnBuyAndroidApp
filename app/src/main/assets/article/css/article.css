@@ -8,6 +8,7 @@
 body {
 	font-family: 'Slabo27px';
 	word-wrap: break-word;
+	text-align: justify;
 }
 
 a {
@@ -26,13 +27,13 @@ a {
     -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
 }
 .product .product-image {
-    width: auto;
-    height: 200px;
+    width: 100%;
+    height: auto;
 }
 .product .product-price {
     position: absolute;
-    right: 20px;
-    bottom: 20px;
-    color: #9B59B6;
+    right: 10px;
+    bottom: 10px;
     font-size: 22px;
+    color: #9B59B6;
 }
