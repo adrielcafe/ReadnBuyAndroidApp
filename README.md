@@ -61,12 +61,20 @@ Source: [Pixelter](https://blog.pixelter.com/mobile-commerce-trends-2016/)
 Source: [Smart Insights](http://www.smartinsights.com/mobile-marketing/mobile-marketing-analytics/mobile-marketing-statistics/)
 
 
-## Write With
+## Coded With
 * [Kotlin](https://kotlinlang.org/)
 * [RxJava](https://github.com/ReactiveX/RxJava) and [RxBus](https://github.com/Dimezis/RxBus)
 * [Shopify SDK](https://github.com/Shopify/mobile-buy-sdk-android)
 * [MVP Pattern](http://antonioleiva.com/mvp-android/)
 
+## Final Thoughts
+I believe that the future of commerce will be a seamless and convenient mobile experience, when costumers will be invited to buy products in a non-intrusive way.
+
+Some other features that will impact more and more the M-Commerce and E-Commerce are:
+* Privacy control
+* Gamefication
+* Loyalty programs
+* Instant gratification
 
 ## License
 > The MIT License (MIT)
