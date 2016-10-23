@@ -1,6 +1,5 @@
 package cafe.adriel.vanhackathon.shopify.readnbuy.util
 
-import android.content.Intent
 import android.graphics.Color
 import android.support.annotation.StringRes
 import android.view.MenuItem
@@ -19,14 +18,4 @@ fun MenuItem.setFontIcon(icon: IIcon) {
             .icon(icon)
             .color(Color.WHITE)
             .sizeDp(24))
-}
-
-fun Intent.isCheckoutFinished(): Boolean {
-    if(this.dataString != null){
-        return this.dataString.let {
-            it.startsWith("http://readnbuy.com") && it.contains("checkout") && it.contains("token")
-        }
-    } else {
-        return false
-    }
 }

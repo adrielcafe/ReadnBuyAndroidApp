@@ -5,6 +5,7 @@ import android.content.Context
 import android.os.StrictMode
 import com.shopify.buy.dataprovider.BuyClient
 import com.shopify.buy.dataprovider.BuyClientBuilder
+import com.shopify.buy.model.Customer
 import com.tsengvn.typekit.Typekit
 
 class App: Application() {
@@ -14,6 +15,7 @@ class App: Application() {
             private set
         lateinit var shopify: BuyClient
             private set
+        var customer: Customer? = null
     }
 
     override fun onCreate() {

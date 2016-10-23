@@ -59,5 +59,6 @@ class LogInActivity : BaseActivity(), ILogInView {
     override fun toggleViews(enabled: Boolean) {
         vEmail.isEnabled = enabled
         vPassword.isEnabled = enabled
+        vLogIn.isEnabled = enabled
     }
 }

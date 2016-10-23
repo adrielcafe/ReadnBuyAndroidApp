@@ -1,7 +1,5 @@
 package cafe.adriel.vanhackathon.shopify.readnbuy.view.ui
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
 import android.text.Html
@@ -12,17 +10,19 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import cafe.adriel.vanhackathon.shopify.readnbuy.R
 import cafe.adriel.vanhackathon.shopify.readnbuy.model.entity.Article
+import cafe.adriel.vanhackathon.shopify.readnbuy.model.entity.NativeCheckoutEvent
 import cafe.adriel.vanhackathon.shopify.readnbuy.model.entity.Product
-import cafe.adriel.vanhackathon.shopify.readnbuy.model.entity.WebCheckoutEvent
 import cafe.adriel.vanhackathon.shopify.readnbuy.presenter.ArticlePresenter
 import cafe.adriel.vanhackathon.shopify.readnbuy.presenter.IArticlePresenter
 import cafe.adriel.vanhackathon.shopify.readnbuy.util.prettyDate
+import cafe.adriel.vanhackathon.shopify.readnbuy.util.string
 import cafe.adriel.vanhackathon.shopify.readnbuy.view.IArticleView
 import cafe.adriel.voxrecorder.view.ui.base.BaseFragment
 import com.bumptech.glide.Glide
 import com.eightbitlab.rxbus.Bus
 import com.eightbitlab.rxbus.registerInBus
-import com.pawegio.kandroid.e
+import com.pawegio.kandroid.toast
+import dmax.dialog.SpotsDialog
 import kotlinx.android.synthetic.main.dialog_product.view.*
 import kotlinx.android.synthetic.main.fragment_article.*
 import kotlinx.android.synthetic.main.fragment_article.view.*
@@ -30,6 +30,7 @@ import kotlinx.android.synthetic.main.fragment_article.view.*
 class ArticleFragment : BaseFragment(), IArticleView {
 
     private lateinit var presenter : IArticlePresenter
+    private var loadingDialog : SpotsDialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,8 +56,8 @@ class ArticleFragment : BaseFragment(), IArticleView {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        Bus.observe<WebCheckoutEvent>()
-                .subscribe { completeWebCheckout(it.checkoutUrl) }
+        Bus.observe<NativeCheckoutEvent>()
+                .subscribe { completeCheckout(it.success) }
                 .registerInBus(this)
     }
 
@@ -85,7 +86,6 @@ class ArticleFragment : BaseFragment(), IArticleView {
             |</body>
             |</html>
             """.trimMargin()
-        e { body }
         vTitle.text = article.title
         vDate.text = article.date.prettyDate()
         vBody.loadDataWithBaseURL("file:///android_asset/article/", body, "text/html", "utf-8", null)
@@ -106,6 +106,7 @@ class ArticleFragment : BaseFragment(), IArticleView {
             vProductBuy.setOnClickListener {
                 presenter.buyProduct(product)
                 dialog.dismiss()
+                toggleLoadingDialog(true)
             }
             Glide.with(context)
                 .load(product.imageUrl)
@@ -114,12 +115,18 @@ class ArticleFragment : BaseFragment(), IArticleView {
         dialog.show()
     }
 
-    override fun completeWebCheckout(checkoutUrl: String) {
-        val intent = Intent(Intent.ACTION_VIEW)
-        intent.data = Uri.parse(checkoutUrl)
-        intent.`package` = "com.android.chrome"
+    override fun completeCheckout(success: Boolean) {
+        toggleLoadingDialog(false)
+        toast(string(if(success) R.string.congrats_for_buy else R.string.unable_buy))
+    }
 
-        startActivity(intent)
+    override fun toggleLoadingDialog(loading: Boolean) {
+        if(loading){
+            loadingDialog = SpotsDialog(activity, R.style.LoadingDialogStyle)
+            loadingDialog?.show()
+        } else {
+            loadingDialog?.dismiss()
+        }
     }
 
 }

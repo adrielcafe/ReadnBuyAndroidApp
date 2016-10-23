@@ -9,6 +9,8 @@ interface IArticleView {
 
     fun showProduct(product: Product)
 
-    fun completeWebCheckout(checkoutUrl: String)
+    fun completeCheckout(success: Boolean)
+
+    fun toggleLoadingDialog(loading: Boolean)
 
 }

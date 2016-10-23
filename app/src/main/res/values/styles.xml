@@ -8,6 +8,12 @@
         <item name="android:activityCloseExitAnimation">@anim/stack_right_out</item>
     </style>
 
+    <style name="LoadingDialogStyle" parent="android:Theme.DeviceDefault.Light.Dialog">
+        <item name="DialogTitleAppearance">@android:style/TextAppearance.Medium</item>
+        <item name="DialogTitleText">@string/buying</item>
+        <item name="DialogSpotColor">?attr/colorAccent</item>
+    </style>
+
     <style name="ArticleCardTextView">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
