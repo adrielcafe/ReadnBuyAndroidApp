@@ -9,23 +9,23 @@
 
 
 ## Project
-Read n' Buy is a **news app**. But instead of showing the traditional advertising banners he is integrated with Shopify and lets the users **buy without leave the app**.
+Read n' Buy is a **news app**. But instead of showing the traditional advertising banners he is integrated with Shopify and allows the users **buy without leave the app**.
 
 *What's the problem with ads?* First of all, they are ugly. Second thing, they are annoying. When you click on an ad banner this is what happens:
-1. You leave the app and go to the browser
-2. Add the product to the cart
-3. Login (if needed)
-4. And then you do checkout
-5. You still have to back to the app
+- You leave the app and go to the browser
+- Add the product to the cart
+- Login (if needed)
+- And then you do checkout
+- You still have to back to the app
 
 **This ruins the user experience and drastically decreases the conversion rate.**
 
 On my project I've tried to fix this. There are two objectives: 1) **increase the conversion rate** and 2) **simplify the buy flux**. 
 
 To do it, first we need to **bring the shop to the app**. With the Shopify SDK I'm able to:
-1. Allow users do login/logout with their shop credentials (so I can get their email, shipping address and so on)
-2. Get the product descriptions
-3. Buy products (add them to the cart and do checkout without leave the app)
+- Allow users do login/logout with their shop credentials (so I can get their email, shipping address and so on)
+- Get the product descriptions
+- Buy products (add them to the cart and do checkout without leave the app)
 
 I'm using the [Native Checkout](https://help.shopify.com/api/sdks/mobile-buy-sdk/android/integration-guide/checkout#using-native-checkout), this grants a seamless buy flux. 
 
