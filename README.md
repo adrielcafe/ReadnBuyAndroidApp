@@ -1,3 +1,7 @@
+[![codebeat badge](https://codebeat.co/badges/eb4e6ae6-f70b-4da4-a757-8b6c2c62e5ba)](https://codebeat.co/projects/github-com-adrielcafe-readnbuy)
+[![platform](https://img.shields.io/badge/platform-Android-brightgreen.svg)](https://android.com)
+[![license](https://img.shields.io/badge/license-MIT-yellow.svg)](https://github.com/adrielcafe/ReadnBuy#license)
+
 ![logo](https://raw.githubusercontent.com/adrielcafe/ReadnBuy/master/app/src/main/res/mipmap-xxhdpi/ic_launcher.png)
 
 # Read n' Buy
