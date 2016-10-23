@@ -49,6 +49,8 @@ dependencies {
 
     // Android
     compile "com.github.bumptech.glide:glide:3.7.0"
+    compile "com.mikepenz:iconics-core:2.8.1@aar"
+    compile "com.mikepenz:google-material-typeface:2.2.0.3.original@aar"
     compile "com.tsengvn:typekit:1.0.1@aar"
     compile "com.github.florent37:diagonallayout:1.0.2@aar"
 
