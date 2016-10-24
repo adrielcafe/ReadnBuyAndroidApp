@@ -2,7 +2,7 @@
 [![platform](https://img.shields.io/badge/platform-Android-brightgreen.svg)](https://android.com)
 [![license](https://img.shields.io/badge/license-MIT-yellow.svg)](https://github.com/adrielcafe/ReadnBuy#license)
 
-![logo](https://raw.githubusercontent.com/adrielcafe/ReadnBuy/master/app/src/main/res/mipmap-xxhdpi/ic_launcher.png)
+![shot](https://raw.githubusercontent.com/adrielcafe/ReadnBuy/master/shot.png)
 
 
 # Read n' Buy
