@@ -57,7 +57,7 @@ Source: [Pixelter](https://blog.pixelter.com/mobile-commerce-trends-2016/)
 
 > **Mobile Ad Spend still lags behind Mobile Media Consumption:** Despite the growth in media time above, some advertisers are missing out since the right-most bar shows that there is a huge missing opportunity on mobile advertising.
 
-![Smart Insights Chart](https://s3.amazonaws.com/upload.screenshot.co/3229bc9580)
+![Smart Insights Chart](http://www.smartinsights.com/wp-content/uploads/2015/06/Mobile-Internet-Trends-Mary-Meeker-2015-2-550x409.png)
 
 Source: [Smart Insights](http://www.smartinsights.com/mobile-marketing/mobile-marketing-analytics/mobile-marketing-statistics/)
 
