@@ -3,21 +3,24 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 24
-    buildToolsVersion "24.0.2"
+    compileSdkVersion 27
+    buildToolsVersion "27.0.3"
     defaultConfig {
         applicationId "cafe.adriel.vanhackathon.shopify.readnbuy"
         minSdkVersion 21
-        targetSdkVersion 24
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
     }
+    flavorDimensions "default"
     productFlavors {
         dev {
             resValue "string", "app_name", "Read n\\' Buy Dev"
+            dimension "default"
         }
         prod {
             resValue "string", "app_name", "Read n\\' Buy"
+            dimension "default"
         }
     }
     buildTypes {
@@ -51,7 +54,7 @@ dependencies {
     compile "com.github.bumptech.glide:glide:3.7.0"
     compile "com.mikepenz:iconics-core:2.8.1@aar"
     compile "com.mikepenz:google-material-typeface:2.2.0.3.original@aar"
-    compile "com.tsengvn:typekit:1.0.1@aar"
+    compile "com.github.katoro:typekit:1.0.1"
     compile "com.github.florent37:diagonallayout:1.0.2@aar"
     compile "com.flaviofaria:kenburnsview:1.0.7@aar"
     compile "com.github.d-max:spots-dialog:0.7@aar"

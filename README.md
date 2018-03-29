@@ -8,6 +8,7 @@
 # Read n' Buy
 > **Read n' Buy** is an open source Android app developed at the Vanhackathon for Shopify's challenge.
 
+[Sample app](read-n-buy.apk)
 
 ## Demo Video
 [![Read n' Buy Demo Video](http://img.youtube.com/vi/74yI7o13a50/0.jpg)](https://www.youtube.com/watch?v=74yI7o13a50 "Read n' Buy Demo Video")

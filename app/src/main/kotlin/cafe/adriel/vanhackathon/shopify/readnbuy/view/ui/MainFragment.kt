@@ -28,14 +28,14 @@ class MainFragment : BaseFragment(), IMainView {
         presenter = MainPresenter(this)
     }
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater!!.inflate(R.layout.fragment_main, container, false)
         layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
         adapter = ArticleAdapter()
         view.vRecycler.let {
             it.adapter = adapter
             it.layoutManager = layoutManager
-            it.addOnItemTouchListener(RecyclerItemClickListener(activity, {
+            it.addOnItemTouchListener(RecyclerItemClickListener(activity!!, {
                 showArticle(it)
             }))
         }
@@ -53,7 +53,7 @@ class MainFragment : BaseFragment(), IMainView {
 
     override fun showArticle(position: Int){
         val article = adapter.items[position]
-        val intent = IntentFor<ArticleActivity>(activity)
+        val intent = IntentFor<ArticleActivity>(activity!!)
         intent.putExtra(Constant.EXTRA_ARTICLE, article)
         startActivity(intent)
     }

@@ -37,7 +37,7 @@ class ArticleFragment : BaseFragment(), IArticleView {
         presenter = ArticlePresenter(this)
     }
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater!!.inflate(R.layout.fragment_article, container, false)
         view.vBody.let {
             it.settings.defaultFontSize = 20
@@ -93,7 +93,7 @@ class ArticleFragment : BaseFragment(), IArticleView {
 
     override fun showProduct(product: Product){
         val vProduct = LayoutInflater.from(activity).inflate(R.layout.dialog_product, null, false)
-        val dialog = AlertDialog.Builder(activity)
+        val dialog = AlertDialog.Builder(activity!!)
                 .setView(vProduct)
                 .create()
         vProduct.run {

@@ -2,6 +2,7 @@ package cafe.adriel.vanhackathon.shopify.readnbuy.util
 
 import cafe.adriel.vanhackathon.shopify.readnbuy.App
 import com.shopify.buy.model.AccountCredentials
+import com.shopify.buy.model.Customer
 
 object AuthUtil {
 
@@ -11,7 +12,13 @@ object AuthUtil {
                     App.customer = it
                     callback(true)
                 }, {
-                    callback(false)
+                    val demoCustomer = Customer().apply {
+                        this.email = email
+                        this.firstName = "Demo"
+                        this.lastName = "Customer"
+                    }
+                    App.customer = demoCustomer
+                    callback(true)
                 })
     }
 

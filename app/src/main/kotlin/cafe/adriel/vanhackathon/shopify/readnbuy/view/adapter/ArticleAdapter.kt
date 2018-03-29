@@ -11,16 +11,16 @@ import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.list_item_article.view.*
 import java.util.*
 
-class ArticleAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class ArticleAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     val items = LinkedList<Article>()
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): RecyclerView.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val view = LayoutInflater.from(parent?.context).inflate(R.layout.list_item_article, parent, false)
         return ArticleViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder?, position: Int) {
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         (holder as ArticleViewHolder).bind(items[position])
     }
 
